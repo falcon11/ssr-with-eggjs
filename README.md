@@ -11,16 +11,22 @@ see [egg docs][egg] for more detail.
 ### Development
 
 ```bash
-$ npm i
-$ npm run dev
-$ open http://localhost:7001/
+# 安装 eggjs 项目依赖
+yarn
+# 安装 web 项目依赖
+cd app/web
+yarn
+# 启动开发环境
+cd ../..
+yarn dev
+open http://localhost:7001/
 ```
 
 ### Deploy
 
 ```bash
-$ npm start
-$ npm stop
+npm start
+npm stop
 ```
 
 ### npm scripts
