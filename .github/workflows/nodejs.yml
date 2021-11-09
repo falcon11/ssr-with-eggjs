@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [10]
+        node-version: [14]
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
@@ -35,7 +35,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install Dependencies
-      run: npm i -g npminstall && npminstall && npminstall app/web
+      run: npm i -g npminstall && npminstall && cd app/web && npminstall && cd ../..
 
     - name: Continuous Integration
       run: npm run ci
