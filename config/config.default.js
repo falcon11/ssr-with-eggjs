@@ -24,6 +24,10 @@ module.exports = (appInfo, appConfig = {}) => {
 
   // add your user config here
   const userConfig = {
+    // 开启 gzip
+    static: {
+      gzip: true,
+    },
     // 配置 assets
     assets: {
       publicPath: '/public',
