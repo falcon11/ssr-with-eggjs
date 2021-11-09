@@ -7,8 +7,12 @@
     "declarations": true
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "egg": "^2.15.1",
-    "egg-scripts": "^2.11.0"
+    "egg-scripts": "^2.11.0",
+    "egg-view-assets": "^1.8.0",
+    "egg-view-nunjucks": "^2.3.0",
+    "mime": "^3.0.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -26,6 +30,7 @@
     "start": "egg-scripts start --daemon --title=egg-server-ssr-with-eggjs",
     "stop": "egg-scripts stop --title=egg-server-ssr-with-eggjs",
     "dev": "egg-bin dev",
+    "build": "cross-env APP_ROOT=app/web app/web/node_modules/umi/bin/umi.js build",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",

@@ -5,5 +5,6 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/', controller.home.index);
+  // 所有请求都走 controller.home.index
+  router.get('*', controller.home.index);
 };
