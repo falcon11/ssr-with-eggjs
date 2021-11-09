@@ -12,3 +12,6 @@ run/
 *.un~
 typings/
 .nyc_output/
+
+# umi
+app/public
