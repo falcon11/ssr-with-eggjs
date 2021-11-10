@@ -7,21 +7,35 @@
     "declarations": true
   },
   "dependencies": {
+    "@ant-design/pro-layout": "^6.5.0",
     "cross-env": "^7.0.3",
     "egg": "^2.15.1",
     "egg-scripts": "^2.11.0",
     "egg-view-assets": "^1.8.0",
     "egg-view-nunjucks": "^2.3.0",
-    "mime": "^3.0.0"
+    "http-proxy-middleware": "^2.0.1",
+    "koa2-connect": "^1.0.2",
+    "mime": "^3.0.0",
+    "react": "17.x",
+    "react-dom": "17.x",
+    "umi": "^3.5.20"
   },
   "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@umijs/preset-react": "1.x",
+    "@umijs/test": "^3.5.20",
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
     "egg-bin": "^4.11.0",
     "egg-ci": "^1.11.0",
     "egg-mock": "^3.21.0",
     "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0"
+    "eslint-config-egg": "^7.1.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.0",
+    "typescript": "^4.1.2",
+    "yorkie": "^2.0.0"
   },
   "engines": {
     "node": ">=10.0.0"
@@ -30,14 +44,18 @@
     "start": "egg-scripts start --daemon --title=egg-server-ssr-with-eggjs",
     "stop": "egg-scripts stop --title=egg-server-ssr-with-eggjs",
     "dev": "egg-bin dev",
-    "build": "cross-env APP_ROOT=app/web app/web/node_modules/umi/bin/umi.js build",
+    "build": "cross-env APP_ROOT=app/web umi build",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run build && npm run lint && npm run cov",
-    "autod": "autod"
+    "autod": "autod",
+    "start-web": "cross-env APP_ROOT=app/web umi dev",
+    "postinstall-web": "cross-env APP_ROOT=app/web umi generate tmp",
+    "test-web": "cross-env APP_ROOT=app/web umi-test",
+    "test:coverage-web": "cross-env APP_ROOT=app/web umi-test --coverage"
   },
   "ci": {
     "version": "10"

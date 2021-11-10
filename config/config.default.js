@@ -32,7 +32,7 @@ module.exports = (appInfo, appConfig = {}) => {
     assets: {
       publicPath: '/public',
       devServer: {
-        command: 'app/web/node_modules/umi/bin/umi.js dev',
+        command: 'umi dev',
         env: {
           APP_ROOT: path.join(appInfo.baseDir, assetsDir),
           PORT: '{port}',
