@@ -50,6 +50,13 @@ module.exports = (appInfo, appConfig = {}) => {
       },
       defaultViewEngine: 'nunjucks',
     },
+    proxy: true,
+    security: {
+      csrf: { enable: true, useSession: true },
+      xframe: {
+        enable: true,
+      },
+    },
   };
 
   return {
