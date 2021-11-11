@@ -52,7 +52,7 @@ module.exports = (appInfo, appConfig = {}) => {
     },
     proxy: true,
     security: {
-      csrf: { enable: true, useSession: true },
+      csrf: { enable: true },
       xframe: {
         enable: true,
       },
