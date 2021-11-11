@@ -78,15 +78,18 @@ export default function IndexPage() {
           <label>Headers:</label>
           <br />
           <textarea
+            className={styles.textarea}
             name="headers"
-            rows={10}
-            cols={30}
             onChange={handleChange}
           />
           <br />
           <label>Body:</label>
           <br />
-          <textarea name="body" rows={10} cols={30} onChange={handleChange} />
+          <textarea
+            className={styles.textarea}
+            name="body"
+            onChange={handleChange}
+          />
           <br />
           <label>Response content type:</label>
           <br />
