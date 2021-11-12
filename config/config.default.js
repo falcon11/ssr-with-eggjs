@@ -20,7 +20,7 @@ module.exports = (appInfo, appConfig = {}) => {
   config.keys = appInfo.name + '_1636442650677_1894';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = [ 'reverseProxy' ];
 
   // add your user config here
   const userConfig = {
@@ -55,6 +55,20 @@ module.exports = (appInfo, appConfig = {}) => {
       csrf: { enable: true },
       xframe: {
         enable: true,
+      },
+    },
+    reverseProxy: {
+      match: '/api', // 当请求路径以此字符串开头时，使用该中间件
+      proxy: {
+        changeOrigin: true,
+        router: req => {
+          console.log('req.url', req.url);
+          // 可以根据请求的 url 返回不同的 target
+          return 'https://httpbin.org';
+        },
+        pathRewrite: {
+          '^/api': '',
+        },
       },
     },
   };
