@@ -42,8 +42,14 @@ export default function IndexPage() {
     const contentType = headers['content-type'];
     if (/image\/.*/.test(contentType)) {
       const urlCreator = window.URL || window.webkitURL;
+      let imgSrc = '';
+      try {
+        imgSrc = urlCreator.createObjectURL(response.data);
+      } catch (error) {
+        console.error('error', error);
+      }
       return (
-        <img src={urlCreator.createObjectURL(response.data)} alt="image" />
+        <img src={imgSrc} alt="image" />
       );
     }
     return (
